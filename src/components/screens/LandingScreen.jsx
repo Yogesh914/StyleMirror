@@ -1,7 +1,7 @@
 // screens/LandingScreen.js
 import { View, TouchableOpacity, Text } from 'react-native';
-import Header from '../Header';
-import ImageCarousel from '../ImageCarousel';
+import Header from '../helpers/Header';
+import ImageCarousel from '../helpers/ImageCarousel';
 import { styles } from '../helpers/globalStyles';
 
 const LandingScreen = ({ navigation }) => (
