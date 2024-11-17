@@ -1,10 +1,72 @@
 import { StyleSheet } from 'react-native';
 
-export const appBackgroundColor = '#D99177';
-export const darkBlue = '#364259'
-export const lightGray = '#BFBFBF'
+// export const appBackgroundColor = '#EFD5C2'; // Peach/Khaki & Green Theme
+// export const primaryColor = '#736C49'
+// export const secondaryColor = '#F1E2C3'
+// export const appBackgroundColor = '#F1E1C3'; // Green-ish Theme
+// export const primaryColor = '#736C49'
+// export const secondaryColor = '#F1E2C3'
+export const appBackgroundColor = '#D9B5A0'; // Brown-ish theme
+export const primaryColor = '#734E40'
+export const secondaryColor = '#F1E2C3'
 
 export const styles = StyleSheet.create({
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    infoModalContainer: {
+        height: 300,
+        backgroundColor: secondaryColor,
+        borderRadius: 30,
+        overflow: 'hidden',
+        position: 'relative',
+    },
+    infoModalCloseButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        zIndex: 1,
+    },
+    infoModalPage: {
+        padding: 20,
+        paddingTop: 60,
+        alignItems: 'center',
+    },
+    infoModalTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: primaryColor,
+        marginBottom: 20,
+    },
+    infoModalContent: {
+        fontSize: 16,
+        color: primaryColor,
+        textAlign: 'center',
+        lineHeight: 24,
+    },
+    infoModalPagination: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 20,
+        left: 0,
+        right: 0,
+    },
+    dot: {
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        backgroundColor: primaryColor,
+        opacity: 0.3,
+        marginHorizontal: 4,
+    },
+    activeDot: {
+        opacity: 1,
+    },
     showOutfitContainer: {
         flex: 1,
         backgroundColor: appBackgroundColor,
@@ -22,18 +84,18 @@ export const styles = StyleSheet.create({
     showOutfitImage: {
         width: 300,
         height: 300,
-        borderColor: darkBlue,
+        borderColor: primaryColor,
         borderRadius: 2,
         borderWidth: 2
     },
     generalButton: {
-        backgroundColor: darkBlue,
+        backgroundColor: primaryColor,
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
     },
     generalButtonText: {
-        color: lightGray,
+        color: secondaryColor,
         fontSize: 16,
         fontWeight: 'bold',
     },
@@ -75,7 +137,7 @@ export const styles = StyleSheet.create({
         width: 160,
         height: 160,
         marginRight: 10,
-        borderColor: darkBlue,
+        borderColor: primaryColor,
         borderRadius: 2,
         borderWidth: 1
     },
@@ -85,27 +147,27 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 100,
         borderBottomWidth: 1,
-        borderBottomColor: darkBlue,
-        backgroundColor: darkBlue,
+        borderBottomColor: primaryColor,
+        backgroundColor: primaryColor,
         paddingHorizontal: 20,
         paddingTop: 50,
     },
     headerTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: lightGray
+        color: secondaryColor
     },
     backButton: {
         position: 'absolute',
         left: 20,
         top: 62,
-        color: lightGray
+        color: secondaryColor
     },
     infoButton: {
         position: 'absolute',
         right: 20,
         top: 62,
-        color: lightGray,
+        color: secondaryColor,
     },
 });
   

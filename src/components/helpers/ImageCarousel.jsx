@@ -1,6 +1,6 @@
 // components/ImageCarousel.js
 import { StyleSheet, ScrollView, Image } from 'react-native';
-import { styles } from './helpers/globalStyles';
+import { styles } from './globalStyles';
 
 const ImageCarousel = ({ img1, img2, img3 }) => (
     <ScrollView 
@@ -12,6 +12,6 @@ const ImageCarousel = ({ img1, img2, img3 }) => (
       <Image source={img2} style={styles.carouselImage} />
       <Image source={img3} style={styles.carouselImage} />
     </ScrollView>
-  );
+);
 
 export default ImageCarousel;

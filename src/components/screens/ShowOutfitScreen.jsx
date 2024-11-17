@@ -1,6 +1,6 @@
 // screens/ShowOutfitScreen.js
 import { StyleSheet, View, TouchableOpacity, Text, Image } from 'react-native';
-import Header from '../Header';
+import Header from '../helpers/Header';
 import { styles } from '../helpers/globalStyles';
 
 const ShowOutfitScreen = ({ navigation }) => (

@@ -1,6 +1,6 @@
 // screens/SavedOutfitsScreen.js
 import { StyleSheet, View, Text } from 'react-native';
-import Header from '../Header';
+import Header from '../helpers/Header';
 import { styles } from '../helpers/globalStyles';
 
 const SavedOutfitsScreen = ({ navigation }) => (
