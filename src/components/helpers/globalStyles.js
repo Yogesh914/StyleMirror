@@ -139,7 +139,7 @@ export const styles = StyleSheet.create({
         marginRight: 10,
         borderColor: primaryColor,
         borderRadius: 2,
-        borderWidth: 1
+        borderWidth: 1,
     },
     header: {
         flexDirection: 'row',
@@ -168,6 +168,30 @@ export const styles = StyleSheet.create({
         right: 20,
         top: 62,
         color: secondaryColor,
+    },
+
+    selectedImagesContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        marginVertical: 20,
+        gap: 5,
+    },
+    selectedImage: {
+        width: '45%',
+        aspectRatio: 1,
+        borderRadius: 10,
+        borderColor: primaryColor,
+        borderWidth: 2,
+    },
+    buttonContainer: {
+        marginVertical: 10,
+    },
+    carouselContainer: {
+        marginVertical: 10,
+    },
+    lastButtonContainer: {
+        marginBottom: 5,
     },
 });
   
