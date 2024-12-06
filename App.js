@@ -4,11 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
+import * as Font from 'expo-font'; 
 import { primaryColor, secondaryColor, appBackgroundColor, styles } from './src/components/helpers/globalStyles';
 import LandingScreen from './src/components/screens/LandingScreen';
 import OutfitCreatorScreen from './src/components/screens/OutfitCreatorScreen';
 import ShowOutfitScreen from './src/components/screens/ShowOutfitScreen';
 import SavedOutfitsScreen from './src/components/screens/SavedOutfitsScreen';
+import { useEffect, useState } from 'react';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,6 +24,21 @@ const MainStack = () => (
 );
 
 export default function App() {
+
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    console.log("got here");
+    loadFonts();
+  }, []);
+
+  async function loadFonts() {
+    await Font.loadAsync({
+      'Ephesis-Regular': require('./src/assets/fonts/Ephesis/Ephesis-Regular.ttf'),
+    });
+    setFontsLoaded(true);
+  }
+
   return (
       <NavigationContainer>
         <Tab.Navigator
@@ -54,5 +71,5 @@ export default function App() {
         </Tab.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
-  );s
+  );
 }
