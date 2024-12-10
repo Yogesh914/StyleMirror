@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
 import Header from '../helpers/Header';
 import { styles, primaryColor, appBackgroundColor } from '../helpers/globalStyles';
 
-const SavedOutfitsScreen = ({ navigation }) => {
-  const savedOutfits = [
+const SavedOutfitsScreen = ({ navigation, route }) => {
+  const [savedOutfits, setSavedOutfits] = useState([
     {
       id: 1,
       userImage: require('../../assets/greySweatshirtWorn.jpg'),
@@ -23,11 +23,32 @@ const SavedOutfitsScreen = ({ navigation }) => {
       clothingImage: require('../../assets/peaCoat.jpg'),
       date: '2024-03-02'
     }
-  ];
+  ]);
+
+  useEffect(() => {
+    // Check if we have a new saved outfit from navigation params
+    if (route.params?.newOutfit) {
+      const { userImage, clothingImage, generatedImage } = route.params.newOutfit;
+      
+      // Add new outfit to the beginning of the list
+      const newOutfit = {
+        id: Date.now(), // Use timestamp as unique ID
+        userImage: userImage,
+        clothingImage: clothingImage,
+        generatedImage: generatedImage,
+        date: new Date().toISOString().split('T')[0]
+      };
+      
+      setSavedOutfits(prevOutfits => [newOutfit, ...prevOutfits]);
+      
+      // Clear the navigation params to prevent duplicate additions
+      navigation.setParams({ newOutfit: null });
+    }
+  }, [route.params?.newOutfit]);
 
   const windowWidth = Dimensions.get('window').width;
-  const itemWidth = windowWidth * 0.85; // 85% of screen width
-  const horizontalPadding = (windowWidth - itemWidth) / 2; // Calculate padding to center items
+  const itemWidth = windowWidth * 0.85;
+  const horizontalPadding = (windowWidth - itemWidth) / 2;
 
   const gridStyles = {
     scrollContent: {
@@ -109,7 +130,7 @@ const SavedOutfitsScreen = ({ navigation }) => {
 
   return (
     <View style={[styles.savedOutfitsContainer, { backgroundColor: appBackgroundColor }]}>
-      <Header navigation={navigation} showBack={true} />
+      <Header navigation={navigation} showBack={false} />
       {savedOutfits.length > 0 ? (
         <ScrollView 
           showsVerticalScrollIndicator={false}
@@ -120,18 +141,23 @@ const SavedOutfitsScreen = ({ navigation }) => {
               key={outfit.id}
               style={gridStyles.outfitItem}
               onPress={() => {
-                navigation.navigate('ShowOutfit', { outfitId: outfit.id });
+                navigation.navigate('ShowOutfit', { 
+                  outfitId: outfit.id,
+                  generatedImage: outfit.generatedImage,
+                  userImage: outfit.userImage,
+                  clothingImage: outfit.clothingImage
+                });
               }}
               activeOpacity={0.9}
             >
               <View style={gridStyles.outfitImages}>
                 <Image 
-                  source={outfit.userImage} 
+                  source={typeof outfit.userImage === 'string' ? { uri: outfit.userImage } : outfit.userImage} 
                   style={gridStyles.halfImage}
                   resizeMode="cover"
                 />
                 <Image 
-                  source={outfit.clothingImage} 
+                  source={typeof outfit.clothingImage === 'string' ? { uri: outfit.clothingImage } : outfit.clothingImage} 
                   style={gridStyles.halfImage}
                   resizeMode="cover"
                 />
