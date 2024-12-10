@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-// export const appBackgroundColor = '#EFD5C2'; // Peach/Khaki & Green Theme
+export const appBackgroundColor = '#EFD5C2'; // Peach/Khaki & Green Theme
 // export const primaryColor = '#736C49'
 // export const secondaryColor = '#F1E2C3'
 // export const appBackgroundColor = '#F1E1C3'; // Green-ish Theme
 // export const primaryColor = '#736C49'
 // export const secondaryColor = '#F1E2C3'
-export const appBackgroundColor = '#D9B5A0'; // Brown-ish theme
+// export const appBackgroundColor = '#D9B5A0'; // Brown-ish theme
 export const primaryColor = '#734E40'
 export const secondaryColor = '#F1E2C3'
 
@@ -31,21 +31,23 @@ export const styles = StyleSheet.create({
         zIndex: 1,
     },
     infoModalPage: {
-        padding: 20,
-        paddingTop: 60,
+        paddingHorizontal: 15,
+        paddingTop: 50,
+        paddingBottom: 0,
         alignItems: 'center',
     },
     infoModalTitle: {
-        fontSize: 24,
+        fontSize: 35,
         fontWeight: 'bold',
+        fontFamily: 'Ephesis-Regular',
         color: primaryColor,
-        marginBottom: 20,
+        marginBottom: 15,
     },
     infoModalContent: {
         fontSize: 16,
         color: primaryColor,
         textAlign: 'center',
-        lineHeight: 24,
+        lineHeight: 25,
     },
     infoModalPagination: {
         flexDirection: 'row',
@@ -90,13 +92,14 @@ export const styles = StyleSheet.create({
     },
     generalButton: {
         backgroundColor: primaryColor,
-        padding: 15,
+        padding: 10,
         borderRadius: 10,
         alignItems: 'center',
     },
     generalButtonText: {
         color: secondaryColor,
-        fontSize: 16,
+        fontSize: 26,
+        fontFamily: 'Ephesis-Regular',
         fontWeight: 'bold',
     },
     savedOutfitsContainer: {
@@ -153,8 +156,9 @@ export const styles = StyleSheet.create({
         paddingTop: 50,
     },
     headerTitle: {
-        fontSize: 20,
+        fontSize: 35,
         fontWeight: 'bold',
+        fontFamily: 'Ephesis-Regular',
         color: secondaryColor
     },
     backButton: {
