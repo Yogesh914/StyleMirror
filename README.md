@@ -26,7 +26,7 @@ const firebaseConfig = {
 };
 ```
 
-## 1. Update FAL API Configuration
+## 2. Update FAL API Configuration
 
 1. Open the file `vtonService.jsx` in your preferred code editor.
 2. Locate the configuration for `fal.config()`.
