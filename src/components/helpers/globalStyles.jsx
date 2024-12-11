@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
 
 export const appBackgroundColor = '#EFD5C2'; // Peach/Khaki & Green Theme
 // export const primaryColor = '#736C49'
@@ -9,6 +10,7 @@ export const appBackgroundColor = '#EFD5C2'; // Peach/Khaki & Green Theme
 // export const appBackgroundColor = '#D9B5A0'; // Brown-ish theme
 export const primaryColor = '#734E40'
 export const secondaryColor = '#F1E2C3'
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
     modalOverlay: {
@@ -98,7 +100,7 @@ export const styles = StyleSheet.create({
     },
     generalButtonText: {
         color: secondaryColor,
-        fontSize: 26,
+        fontSize: 27,
         fontFamily: 'Ephesis-Regular',
         fontWeight: 'bold',
     },
@@ -131,18 +133,47 @@ export const styles = StyleSheet.create({
         gap: 50,
     },
     carousel: {
-        height: 170,
+        height: 170
     },
     carouselContent: {
         paddingBottom: 0,
     },
+    carousel: {
+        height: 190, // Increased height to accommodate shadow
+        marginVertical: 10,
+        marginLeft: -20, // Negative margin only on left to offset parent padding
+        width: SCREEN_WIDTH, // Full screen width
+    },
+    carouselContent: {
+        paddingBottom: 0,   
+    },
     carouselImage: {
         width: 160,
-        height: 160,
-        marginRight: 10,
-        borderColor: primaryColor,
-        borderRadius: 2,
-        borderWidth: 1,
+        height: 160, // Increased margin for better spacing
+        borderRadius: 16, // More modern rounded corners
+        backgroundColor: '#ffffff', // White background
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+        elevation: 5, // Android shadow
+        transform: [{ scale: 0.98 }], // Slightly smaller scale for elegant look
+    },
+    carouselImageContainer: {
+        padding: 8, // Inner padding
+        backgroundColor: '#ffffff',
+        borderRadius: 16,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+        elevation: 5,
     },
     header: {
         flexDirection: 'row',
