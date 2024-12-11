@@ -4,8 +4,9 @@ import { styles } from './globalStyles';
 
 const SCROLL_SPEED = 15000;
 const IMAGE_WIDTH = 160;
-const IMAGE_MARGIN = 10;
+const IMAGE_MARGIN = 12;
 const ANIMATION_DELAY = 2000;
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const ImageCarousel = ({ img1, img2, img3 }) => {
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -18,7 +19,7 @@ const ImageCarousel = ({ img1, img2, img3 }) => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(scrollX, {
-          toValue: -(contentWidth / 2),
+          toValue: -(contentWidth - SCREEN_WIDTH + 20), // Adjust end position to account for screen width
           duration: SCROLL_SPEED,
           useNativeDriver: true,
           isInteraction: false,
@@ -62,19 +63,23 @@ const ImageCarousel = ({ img1, img2, img3 }) => {
   }, []);
 
   return (
-    <View style={[styles.carousel, { overflow: 'hidden' }]} {...panResponder.panHandlers}>
+    <View style={[styles.carousel]} {...panResponder.panHandlers}>
       <Animated.View
         style={{
           flexDirection: 'row',
           transform: [{ translateX: scrollX }],
+          paddingVertical: 8,
+          paddingLeft: 20, // Left padding to offset the negative margin
         }}
       >
         {images.map((img, index) => (
-          <Image 
-            key={index} 
-            source={img} 
-            style={[styles.carouselImage, { marginRight: IMAGE_MARGIN }]} 
-          />
+          <View key={index} style={styles.carouselImageContainer}>
+            <Image 
+              source={img} 
+              style={[styles.carouselImage]} 
+              resizeMode="cover"
+            />
+          </View>
         ))}
       </Animated.View>
     </View>
