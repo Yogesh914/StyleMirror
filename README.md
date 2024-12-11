@@ -24,6 +24,7 @@ const firebaseConfig = {
   messagingSenderId: "your-sender-id",
   appId: "your-app-id"
 };
+```
 
 ## 1. Update FAL API Configuration
 
@@ -36,3 +37,4 @@ Replace or ensure the following line exists in `vtonService.jsx`:
 fal.config({
   credentials: "API_KEY"
 });
+```
